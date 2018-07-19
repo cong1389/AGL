@@ -1,0 +1,12 @@
+nav ul {
+  margin: 0;
+  padding: 106px;
+  list-style: -moz-linear-gradient(); }
+
+nav li {
+  display: inline-block; }
+
+nav a {
+  display: block;
+  padding: 106px 12px;
+  text-decoration: none; }

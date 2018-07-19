@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        AngularJS Form Validations Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('formApp', []);
+
+        app.factory('factoryTest', function () {
+            return {
+                msgContact: "Build factory fdfd"
+            }
+        })
+
+        app.service('serviceTest', function () {
+
+            return {
+                msgServices: "This is services"
+            }
+        });
+
+
+        app.controller('formCtrl', function ($scope, $interval, factoryTest, serviceTest) {
+
+            $scope.pTime = new Date().toLocaleTimeString();
+
+            $interval(function () {
+                $scope.pTime = new Date().toLocaleTimeString();
+            }, 1000);
+
+            $scope.msgServices = serviceTest.msgServices;
+            $scope.msgContactResp = factoryTest.msgContact;
+
+            $scope.sendForm = function () {
+                $scope.msg = "Form Validated";
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <div ng-app="formApp" ng-controller="formCtrl">
+        <h2>AngularJS Form Validations Example</h2>
+        <form name="personForm" ng-submit="sendForm()">
+            <br/> Msg PTime :{{pTime}}
+            <br/> Msg service: {{msgServices}}
+            <br/> Msg factory :{{msgContactResp}}
+            <br/> First Name:
+            <input type="text" name="firstname" ng-model="person.fname" required />
+            <span ng-show="personForm.firstname.$error.required"> Required! </span>
+            <br />
+            <br /> Last Name:
+            <input type="text" name="lastname" ng-model="person.lname" required />
+            <span ng-show="personForm.lastname.$error.required"> Required! </span>
+            <br />
+            <br />
+            <button type="submit">Submit Form</button>
+            <br />
+            <br />
+            <span>{{msg}}</span>
+        </form>
+    </div>
+</body>
+
+</html>

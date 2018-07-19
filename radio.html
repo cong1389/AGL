@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        AngularJS Form Validations Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('radioApp', []);
+
+        app.controller('radioController', function ($scope) {
+
+            $scope.users = [
+                {
+                    "userId": 1, "userName": "A"
+                }, {
+                    "userId": 2, "userName": "B"
+                }
+            ];
+
+            $scope.checkMsg = function (choise) {
+
+                angular.forEach(choise, function (value, key) {
+
+                    var choised = [];
+                    if (choise[key].checked) {
+                        choised.push(choise[key].userId);
+                    };
+
+                    if (choised.length > 0) {
+                        $scope.msg = "Choised:" + choised.toString();
+                    }
+                    else {
+                        $scope.msg = "Please choise an option!";
+                    }
+
+                });
+
+            };
+
+            $scope.sendContact = function () {
+                $scope.msg = "Form Valided.";
+            };
+
+        });
+
+    </script>
+</head>
+
+<body ng-app="radioApp">
+    <div ng-controller="radioController">
+
+        <form name="frmContact" novalidate ng-submit="frmContact.$valid && sendContact()">
+            <input type="text" name="fullName" ng-model="txtFullName" required ng-pattern="/^[0-9]{1,5}$/" />
+            <span style="color: red" ng-show="frmContact.fullName.$error.required">Required!</span>
+            <span style="color: red" ng-show="frmContact.fullName.$dirty && frmContact.fullName.$error.pattern">Minium 3 characters</span>
+        </form>
+
+        <div ng-repeat="user in users">
+            <input type="radio" name="usergroup" ng-value="user.userId" ng-model="user.checked">
+            <label>{{user.userName}}</label>
+            <br>
+        </div>
+
+        <div>
+            <select name="users1" ng-options="user.userName for user in users" ng-model="userselected">
+                <option value="">--Selected value</option>
+            </select>
+        </div>
+
+        <span style="color: red">{{msg}}</span>
+
+        <input type="submit" ng-click="checkMsg(users)" value="fds" />
+    </div>
+</body>
+
+</html>
