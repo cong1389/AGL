@@ -7,7 +7,7 @@
     </title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script type="text/javascript">
-        var app = angular.module('formApp', []);
+        var app = angular.module('appRouter', []);
 
         app.factory('factoryTest', function () {
             return {
@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <div ng-app="formApp" ng-controller="formCtrl">
+    <div ng-app="appRouter" ng-controller="formCtrl">
         <h2>AngularJS Form Validations Example</h2>
         <form name="personForm" ng-submit="sendForm()">
             <br/> Msg PTime :{{pTime}}
