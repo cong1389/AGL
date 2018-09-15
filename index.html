@@ -1,0 +1,59 @@
+<html ng-app="sportStore">
+
+<head>
+    <link href='node_modules/bootstrap/dist/css/bootstrap.min.css' rel="stylesheet"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="angular-route.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.7/angular-route.js"></script> -->
+    <script>
+        angular.module('sportStore', ['customFilters', 'cart', 'ngRoute'])
+            .config(function ($routeProvider) {
+
+                $routeProvider.when("/complete", {
+                    templateUrl: "/views/thankYou.html"
+                });
+
+                $routeProvider.when("/placeorder", {
+                    templateUrl: "/views/placeOrder.html"
+                });
+
+                $routeProvider.when("/checkout", {
+                    templateUrl: "/views/checkoutSummary.html"
+                });
+
+                $routeProvider.when("/products", {
+                    templateUrl: "/views/productList.html"
+                });
+
+                $routeProvider.otherwise({
+                    templateUrl: "/views/productList.html"
+                });
+            });
+    </script>
+
+    <script src="controllers/sportStoreCtrl.js"></script>
+    <script src="filters/customFilters.js"></script>
+    <script src="controllers/sportListCtr.js"></script>
+    <script src="components/cart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-animate.js"></script>
+    
+    <script src="node_modules/angular/angular-resource.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body ng-controller="sportStoreCtr">
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">SPORTS STORE</a>
+    </div>
+
+    <div class="navbar navbar-inverse">
+        <a class="navbar-brand" href="#">SPORTS STORE</a>
+        <cart-summary />
+    </div>
+    <ng-view />
+    <ng-include src="'views/productList.html'"></ng-include>
+
+
+</body>
+
+</html>
