@@ -1,0 +1,51 @@
+<!-- <div ng-controller="lessCtrl as less">Less:
+    {{less.hello()}}
+</div> -->
+
+<div ng-controller="ProductController">
+
+    <!-- <div unordered-list="products" list-property="price | currency">
+    </div> -->
+    <br />
+
+    Today is: {{today}} of base <br />
+
+    <!-- <h3 highlight="Monday">
+        Today is: {{day || "(unknow)" | dayName }}
+    </h3> -->
+
+    <table id="productTable" class="table table-striped table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="(key, value) in products">
+            <td>{{$index+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.price}}</td>
+            <td>
+                <button class="btn btn-xs btn-primary" ng-click="startEdit(item)">Edit</button>
+                <button class="btn btn-xs btn-primary" ng-click="deleteProduct(item)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td> <input ng-model="editProduct.name" required />
+            </td>
+            <td> <input ng-model="editProduct.description" required />
+            </td>
+            <td> <input ng-model="editProduct.category" required />
+            </td>
+            <td> <input ng-model="editProduct.price" required />
+            </td>
+            <td>
+                <button class="btn btn-xs btn-primary" ng-click="createProduct(editProduct)">Create</button>
+            </td>
+        </tr>
+    </table>
+</div>

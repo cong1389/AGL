@@ -1,4 +1,8 @@
 <div ng-controller="sportListCtr" class="panel panel-default row">
+
+    <div with-closure>withClousure</div> <br/>   
+    <div with-out-closure>withOutClosure</div>
+
     <div class="col-xs-3">
         <a ng-class="getCategoryClass(item)" ng-click="selectCategory(item)" ng-repeat="item in data.products | orderBy: 'category'  | unique: 'category'"
             class=" btn btn-block btn-default btn-lg">

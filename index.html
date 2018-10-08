@@ -1,7 +1,8 @@
 <html ng-app="sportStore">
 
 <head>
-    <link href='node_modules/bootstrap/dist/css/bootstrap.min.css' rel="stylesheet"></link>
+    <link href='node_modules/bootstrap/dist/css/bootstrap.min.css' rel="stylesheet">
+    </link>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="angular-route.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.7/angular-route.js"></script> -->
@@ -24,10 +25,15 @@
                 $routeProvider.when("/products", {
                     templateUrl: "/views/productList.html"
                 });
-
+                
+                $routeProvider.when("/demo", {
+                    templateUrl: "/views/demo.html"
+                });
+                
                 $routeProvider.otherwise({
                     templateUrl: "/views/productList.html"
                 });
+
             });
     </script>
 
@@ -36,9 +42,8 @@
     <script src="controllers/sportListCtr.js"></script>
     <script src="components/cart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-animate.js"></script>
-    
-    <script src="node_modules/angular/angular-resource.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="node_modules/angular/angular-resource.min.js"> </script> <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body ng-controller="sportStoreCtr">

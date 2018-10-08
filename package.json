@@ -6,13 +6,15 @@
   "dependencies": {
     "angular": "^1.7.2",
     "bootstrap": "^4.1.3",
-    "connect": "^3.6.6"
+    "connect": "^3.6.6",
+    "grunt": "^1.0.3"
   },
   "devDependencies": {
+    "grunt-angular-builder": "^2.0.0",
     "lite-server": "^2.4.0"
   },
   "scripts": {
-    "start": "http-server -a 127.0.0.1 -p 3000"
+    "start": "node_modules/.bin/lite-server"
   },
   "keywords": [],
   "author": "",
